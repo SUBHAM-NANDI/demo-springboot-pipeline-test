@@ -22,5 +22,5 @@
 
 FROM openjdk:17-oracle
 EXPOSE 8082
-COPY target/sonar-demo-0.0.1-SNAPSHOT.jar /app/sonar-demo-0.0.1-SNAPSHOT.jar
-ENTRYPOINT ["java", "-jar", "/app/sonar-demo-0.0.1-SNAPSHOT.jar"]
+COPY target/sonar-demo-0.0.1.jar /app/sonar-demo-0.0.1.jar
+ENTRYPOINT ["java", "-jar", "/app/sonar-demo-0.0.1.jar"]
