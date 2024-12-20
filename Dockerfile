@@ -12,7 +12,7 @@ WORKDIR /app
 COPY target/sonar-demo-0.0.1-SNAPSHOT.jar /sonar-demo-0.0.1-SNAPSHOT.jar
 
 # Expose the port your app listens on
-EXPOSE 5173
+EXPOSE 8081
 
 # Command to run the WAR file
 ENTRYPOINT ["java", "-jar", "/app/sonar-demo-0.0.1-SNAPSHOT.jar"]
