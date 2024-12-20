@@ -9,7 +9,7 @@ LABEL maintainer="Subham Nandi"
 WORKDIR /app
 
 # Copy the JAR file into the container
-COPY target/sonar-demo-0.0.1-SNAPSHOT.jar /sonar-demo-0.0.1-SNAPSHOT.jar
+COPY target/sonar-demo-0.0.1-SNAPSHOT.jar /app/sonar-demo-0.0.1-SNAPSHOT.jar
 
 # Expose the port your app listens on
 EXPOSE 8081
