@@ -1,5 +1,5 @@
 # Use OpenJDK as the base image
-FROM openjdk:21-jdk
+FROM openjdk:17-jdk
 
 #Identify the maintainer of an image
 LABEL vesrion="0.0.1"
