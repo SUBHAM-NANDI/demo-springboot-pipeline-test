@@ -136,7 +136,6 @@ pipeline {
             }
         }
 
-        Uncomment the following section to include SonarQube analysis
         stage('Sonarqube Analysis') {
             steps {
                 withSonarQubeEnv('sonar-server') {
