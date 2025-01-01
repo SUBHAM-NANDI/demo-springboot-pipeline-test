@@ -135,19 +135,21 @@ pipeline {
                 bat "mvn test"
             }
         }
-        // Uncomment the following section to include SonarQube analysis
-        // stage('Sonarqube Analysis') {
-        //     steps {
-        //         withSonarQubeEnv('sonar-server') {
-        //             bat """
-        //             "${SCANNER_HOME}\\bin\\sonar-scanner" ^
-        //             -D"sonar.projectName=demo-springboot-pipeline-test" ^
-        //             -D"sonar.java.binaries=." ^
-        //             -D"sonar.projectKey=demo-springboot-pipeline-test"
-        //             """
-        //         }
-        //     }
-        // }
+
+        Uncomment the following section to include SonarQube analysis
+        stage('Sonarqube Analysis') {
+            steps {
+                withSonarQubeEnv('sonar-server') {
+                    bat """
+                    "${SCANNER_HOME}\\bin\\sonar-scanner" ^
+                    -D"sonar.projectName=demo-springboot-pipeline-test" ^
+                    -D"sonar.java.binaries=." ^
+                    -D"sonar.projectKey=demo-springboot-pipeline-test"
+                    """
+                }
+            }
+        }
+
         stage('OWASP Dependency Check') {
             steps {
                 dependencyCheck additionalArguments: ' --scan ./ ', odcInstallation: 'dependency-check'
