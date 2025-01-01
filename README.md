@@ -78,29 +78,24 @@ ENTRYPOINT ["java", "-jar", "/app/sonar-demo-0.0.1-SNAPSHOT.jar"]
 
 ---
 
-## Jenkins Pipeline Overview
+Summary of the steps in your Jenkins pipeline:
 
-The Jenkins pipeline automates the following stages:
+1.⁠ ⁠*Git Checkout*: Clones the ⁠ main ⁠ branch of the GitHub repository to retrieve the source code for the pipeline.
 
-### 1. **Git Checkout**
-   - Clones the main branch of the repository from GitHub.
+2.⁠ ⁠*Code Compile*: Compiles the Java code using Maven to ensure there are no syntax or dependency errors.
 
-### 2. **Code Compilation**
-   - Compiles the source code using Maven.
+3.⁠ ⁠*Unit Test*: Runs unit tests using Maven to validate the functionality of individual components.
 
-### 3. **Unit Testing**
-   - Executes the unit tests and verifies the code.
+4.⁠ ⁠*SonarQube Analysis*: Performs static code analysis with SonarQube to identify code quality issues and technical debt.
 
-### 4. **OWASP Dependency Check**
-   - Scans for vulnerabilities in project dependencies.
-   - Publishes a dependency-check report.
+5.⁠ ⁠*OWASP Dependency Check*: Scans for known security vulnerabilities in the project dependencies using the OWASP Dependency-Check tool.
 
-### 5. **Build Artifact**
-   - Creates the application JAR file using Maven.
+6.⁠ ⁠*Build Artifact*: Packages the application into a JAR file using Maven, preparing it for deployment.
 
-### 6. **Docker Build**
-   - Builds a Docker image for the application.
-   - Tags the image and pushes it to a local Docker registry.
+7.⁠ ⁠*Docker Build & Push*:
+   - Builds a Docker image with the packaged application.
+   - Tags the image with the local Docker registry address (⁠ localhost:5000 ⁠).
+   - Pushes the tagged image to the local Docker registry for further use in deployment.
 
 ---
 
